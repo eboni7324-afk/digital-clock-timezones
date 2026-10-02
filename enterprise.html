@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Time Clock | Enterprise Software Solutions</title>
+    <meta name="description" content="Enterprise-grade global time management software for mission-critical operations. Licensed by Ebony Butler." />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --navy: #0f1b2e;
+        --navy-dark: #0a1220;
+        --navy-light: #1a2a3d;
+        --slate: #f8fafc;
+        --slate-dark: #1e293b;
+        --primary: #0066cc;
+        --primary-light: #0080ff;
+        --secondary: #475569;
+        --accent: #059669;
+        --text: #0f172a;
+        --text-light: #475569;
+        --border: #e2e8f0;
+        --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      }
+
+      html, body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        background: var(--bg-gradient);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+
+      /* Header & Navigation */
+      header {
+        background: white;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .brand-icon {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        font-size: 18px;
+      }
+
+      .brand-name {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--navy);
+        letter-spacing: -0.5px;
+      }
+
+      .brand-subtitle {
+        font-size: 0.7rem;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 2px;
+      }
+
+      nav {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+      }
+
+      nav a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        background: var(--primary);
+        color: white !important;
+        padding: 10px 20px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .nav-cta:hover {
+        background: var(--primary-light);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 100px 40px;
+        background: var(--bg-gradient);
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero-badge {
+        display: inline-block;
+        background: #dbeafe;
+        color: var(--primary);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 7vw, 4rem);
+        line-height: 1.15;
+        color: var(--navy);
+        font-weight: 900;
+        margin-bottom: 24px;
+        letter-spacing: -1px;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-light);
+        line-height: 1.8;
+        margin-bottom: 40px;
+        max-width: 700px;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-bottom: 60px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        border: none;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        letter-spacing: 0.3px;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 12px rgba(0, 102, 204, 0.2);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 102, 204, 0.3);
+      }
+
+      .btn-secondary {
+        border: 1.5px solid var(--border);
+        background: white;
+        color: var(--text);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--primary);
+        background: #f0f7ff;
+        color: var(--primary);
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 40px;
+        padding-top: 40px;
+      }
+
+      .stat {
+        border-left: 3px solid var(--primary);
+        padding-left: 24px;
+      }
+
+      .stat-value {
+        font-size: 2.2rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Features Section */
+      .features {
+        padding: 100px 40px;
+        background: white;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 60px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-badge {
+        display: inline-block;
+        color: var(--primary);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: var(--navy);
+        font-weight: 900;
+        margin-bottom: 12px;
+        letter-spacing: -0.5px;
+      }
+
+      .section-description {
+        color: var(--text-light);
+        font-size: 1.1rem;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+      }
+
+      .feature-card {
+        padding: 32px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: white;
+        transition: all 0.3s ease;
+      }
+
+      .feature-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 12px 24px rgba(0, 102, 204, 0.08);
+        transform: translateY(-4px);
+      }
+
+      .feature-icon {
+        font-size: 2.8rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .feature-card h3 {
+        font-size: 1.2rem;
+        color: var(--navy);
+        margin-bottom: 12px;
+        font-weight: 700;
+      }
+
+      .feature-card p {
+        color: var(--text-light);
+        line-height: 1.7;
+      }
+
+      /* Pricing Section */
+      .pricing {
+        padding: 100px 40px;
+        background: var(--bg-gradient);
+      }
+
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .pricing-card {
+        background: white;
+        border: 1.5px solid var(--border);
+        border-radius: 12px;
+        padding: 40px 32px;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .pricing-card.featured {
+        border-color: var(--primary);
+        transform: scale(1.05);
+        box-shadow: 0 20px 40px rgba(0, 102, 204, 0.1);
+      }
+
+      .pricing-card.featured::before {
+        content: 'RECOMMENDED';
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--primary);
+        color: white;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+      }
+
+      .pricing-card:hover {
+        border-color: var(--primary);
+        box-shadow: 0 16px 32px rgba(0, 102, 204, 0.08);
+      }
+
+      .plan-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 8px;
+      }
+
+      .plan-description {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        margin-bottom: 24px;
+      }
+
+      .plan-price {
+        font-size: 2.8rem;
+        font-weight: 900;
+        color: var(--navy);
+        margin-bottom: 4px;
+      }
+
+      .plan-period {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin-bottom: 32px;
+      }
+
+      .plan-features {
+        list-style: none;
+        margin-bottom: 32px;
+        flex-grow: 1;
+      }
+
+      .plan-features li {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--border);
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      .plan-features li:before {
+        content: '✓ ';
+        color: var(--accent);
+        font-weight: 800;
+        margin-right: 8px;
+      }
+
+      .plan-features li:last-child {
+        border-bottom: none;
+      }
+
+      .pricing-card .btn {
+        width: 100%;
+        text-align: center;
+        margin-top: auto;
+      }
+
+      /* Trust Section */
+      .trust {
+        padding: 60px 40px;
+        background: white;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .trust-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .trust-label {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+      }
+
+      .trust-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-top: 40px;
+      }
+
+      .trust-item {
+        color: var(--text-light);
+        font-size: 0.95rem;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 80px 40px;
+        background: linear-gradient(135deg, var(--primary) 0%, #0052a3 100%);
+        text-align: center;
+        color: white;
+      }
+
+      .cta-section h2 {
+        color: white;
+        margin-bottom: 16px;
+      }
+
+      .cta-section p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 1.1rem;
+        margin-bottom: 32px;
+      }
+
+      .cta-section .btn {
+        background: white;
+        color: var(--primary);
+      }
+
+      .cta-section .btn:hover {
+        background: #f0f7ff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--navy);
+        color: rgba(255, 255, 255, 0.7);
+        padding: 60px 40px 40px;
+      }
+
+      .footer-content {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-section h4 {
+        color: white;
+        margin-bottom: 16px;
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .footer-section a {
+        display: block;
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer-section a:hover {
+        color: white;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 24px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      @media (max-width: 768px) {
+        .container, .header-content {
+          padding: 0 20px;
+        }
+        .hero, .features, .pricing, .cta-section {
+          padding: 60px 20px;
+        }
+        nav {
+          gap: 20px;
+        }
+        .pricing-card.featured {
+          transform: scale(1);
+        }
+        h1 { font-size: 2rem; }
+        h2 { font-size: 1.8rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="brand">
+          <div class="brand-icon">W</div>
+          <div>
+            <div class="brand-name">World Time Clock</div>
+            <div class="brand-subtitle">Enterprise Edition</div>
+          </div>
+        </div>
+        <nav>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Resources</a>
+          <a href="mailto:eboni7324@gmail.com" class="nav-cta">Contact Sales</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">Enterprise-Grade Software</div>
+          <h1>Global Time Management Built for Enterprise</h1>
+          <p class="hero-description">
+            Synchronize teams across time zones with precision. World Time Clock delivers
+            reliable, enterprise-ready global time management with commercial licensing and
+            dedicated support for mission-critical operations.
+          </p>
+          <div class="hero-cta">
+            <a href="#pricing" class="btn btn-primary">View Pricing</a>
+            <a href="mailto:eboni7324@gmail.com?subject=World%20Time%20Clock%20Enterprise%20Inquiry" class="btn btn-secondary">Schedule Demo</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-value">8+</div>
+              <div class="stat-label">Global Locations</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">99.9%</div>
+              <div class="stat-label">Uptime Capable</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">ISO</div>
+              <div class="stat-label">Compliant</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-badge">Why Enterprise Teams Choose Us</div>
+            <h2>Designed for Global Operations</h2>
+            <p class="section-description">
+              Built on proven enterprise standards with the reliability and security
+              your organization demands.
+            </p>
+          </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <span class="feature-icon">🌍</span>
+              <h3>Global Synchronization</h3>
+              <p>Real-time coordination across 8+ major international locations with automatic timezone handling and DST adjustments.</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🔒</span>
+              <h3>Enterprise Security</h3>
+              <p>Proprietary commercial licensing ensures controlled access and compliance with organizational security requirements.</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">⚡</span>
+              <h3>Performance Optimized</h3>
+              <p>Lightweight architecture with zero external dependencies delivers instant performance and minimal infrastructure overhead.</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">📱</span>
+              <h3>Responsive Interface</h3>
+              <p>Professional design that works flawlessly across desktop, tablet, and mobile devices for complete team accessibility.</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">✓</span>
+              <h3>Production Ready</h3>
+              <p>Deploy immediately after licensing. No complex setup required. Fully tested and battle-hardened for enterprise use.</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">👥</span>
+              <h3>Team-Focused</h3>
+              <p>Built specifically for distributed teams. Clear visibility into global time zones for scheduling, coordination, and planning.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Section -->
+      <section class="trust">
+        <div class="trust-content">
+          <div class="trust-label">Enterprise Confidence</div>
+          <h3>Purpose-Built for Professional Organizations</h3>
+          <div class="trust-items">
+            <div class="trust-item">✓ Proprietary software with commercial licensing</div>
+            <div class="trust-item">✓ No open-source concerns or dependencies</div>
+            <div class="trust-item">✓ Confidential & secure deployment</div>
+            <div class="trust-item">✓ SLA and support options available</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pricing Section -->
+      <section id="pricing" class="pricing">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-badge">Transparent Pricing</div>
+            <h2>Commercial Licensing Options</h2>
+            <p class="section-description">
+              Flexible plans tailored to your organization's size and deployment scope.
+            </p>
+          </div>
+          <div class="pricing-grid">
+            <div class="pricing-card">
+              <div class="plan-name">Professional</div>
+              <div class="plan-description">For individual professionals and small teams</div>
+              <div class="plan-price">$299</div>
+              <div class="plan-period">One-time license</div>
+              <ul class="plan-features">
+                <li>1 authorized user</li>
+                <li>1 deployment environment</li>
+                <li>Commercial license included</li>
+                <li>Email support</li>
+                <li>License documentation</li>
+              </ul>
+              <a href="mailto:eboni7324@gmail.com?subject=World%20Time%20Clock%20Professional%20License" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card featured">
+              <div class="plan-name">Team</div>
+              <div class="plan-description">Most popular for growing organizations</div>
+              <div class="plan-price">$799</div>
+              <div class="plan-period">Annual license</div>
+              <ul class="plan-features">
+                <li>Up to 10 authorized users</li>
+                <li>Internal team deployment</li>
+                <li>Commercial license included</li>
+                <li>Priority email support</li>
+                <li>Annual renewal discount</li>
+                <li>License transfer rights</li>
+              </ul>
+              <a href="mailto:eboni7324@gmail.com?subject=World%20Time%20Clock%20Team%20License" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <div class="pricing-card">
+              <div class="plan-name">Enterprise</div>
+              <div class="plan-description">For large-scale deployments</div>
+              <div class="plan-price">Custom</div>
+              <div class="plan-period">Custom terms & SLA</div>
+              <ul class="plan-features">
+                <li>Unlimited authorized users</li>
+                <li>Multi-site & global deployment</li>
+                <li>Custom legal terms available</li>
+                <li>Dedicated account support</li>
+                <li>Source code access option</li>
+                <li>Custom integration support</li>
+              </ul>
+              <a href="mailto:eboni7324@gmail.com?subject=World%20Time%20Clock%20Enterprise%20License" class="btn btn-secondary">Contact Sales</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section -->
+      <section class="cta-section" id="contact">
+        <div class="container">
+          <h2>Ready for Enterprise Deployment?</h2>
+          <p>Get started with World Time Clock Enterprise Edition. Commercial licensing available today.</p>
+          <a href="mailto:eboni7324@gmail.com?subject=World%20Time%20Clock%20Enterprise%20Inquiry" class="btn">Start Your License Now</a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+          <a href="demo.html">Demo</a>
+        </div>
+        <div class="footer-section">
+          <h4>Company</h4>
+          <a href="mailto:eboni7324@gmail.com">Contact</a>
+          <a href="COMMERCIAL_LICENSE.md">License Terms</a>
+          <a href="SECURITY.md">Security</a>
+        </div>
+        <div class="footer-section">
+          <h4>Resources</h4>
+          <a href="README.md">Documentation</a>
+          <a href="NOTICE.md">Legal Notice</a>
+          <a href="COPYRIGHT.md">Copyright</a>
+        </div>
+        <div class="footer-section">
+          <h4>Legal</h4>
+          <a href="LICENSE">License</a>
+          <a href="COMMERCIAL_LICENSE.md">Commercial Terms</a>
+          <p style="margin-top: 16px; font-size: 0.85rem;">Proprietary Software<br>© 2026 Ebony Butler</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Ebony Butler. All rights reserved. This software is proprietary and licensed only under a written commercial agreement.</p>
+      </div>
+    </footer>
+  </body>
+</html>
