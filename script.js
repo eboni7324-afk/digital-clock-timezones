@@ -1,3 +1,16 @@
+/**
+ * World Clock Application
+ * Copyright © 2026 Ebony Butler
+ * All rights reserved.
+ * Licensed under MIT License
+ * 
+ * Created by: Ebony Butler
+ * Version: 1.0.0
+ * Description: A digital world clock displaying current time in multiple time zones
+ */
+
+'use strict';
+
 const timeZones = [
   { city: 'New York', zone: 'America/New_York' },
   { city: 'London', zone: 'Europe/London' },
@@ -13,6 +26,12 @@ const localClock = document.getElementById('localClock');
 const localDate = document.getElementById('localDate');
 const timezoneGrid = document.getElementById('timezoneGrid');
 
+/**
+ * Formats a date string for a given timezone
+ * @param {Date} date - The date object to format
+ * @param {string} timeZone - The IANA timezone string
+ * @returns {string} Formatted date string
+ */
 function formatDate(date, timeZone) {
   try {
     return new Intl.DateTimeFormat('en-US', {
@@ -28,6 +47,12 @@ function formatDate(date, timeZone) {
   }
 }
 
+/**
+ * Formats a time string for a given timezone
+ * @param {Date} date - The date object to format
+ * @param {string} timeZone - The IANA timezone string
+ * @returns {string} Formatted time string in HH:MM:SS format
+ */
 function formatTime(date, timeZone) {
   try {
     return new Intl.DateTimeFormat('en-US', {
@@ -43,6 +68,9 @@ function formatTime(date, timeZone) {
   }
 }
 
+/**
+ * Updates the local time and date display
+ */
 function updateLocalTime() {
   const now = new Date();
   const localTime = now.toLocaleTimeString('en-US', {
@@ -67,6 +95,9 @@ function updateLocalTime() {
   }
 }
 
+/**
+ * Builds timezone card HTML elements
+ */
 function buildTimezoneCards() {
   if (!timezoneGrid) {
     console.error('Timezone grid element not found');
@@ -76,10 +107,10 @@ function buildTimezoneCards() {
   timezoneGrid.innerHTML = timeZones
     .map(
       (tz) => `
-        <article class="card">
+        <article class="card" role="region" aria-label="${tz.city} time">
           <h2 class="card__city">${tz.city}</h2>
           <p class="card__zone">${tz.zone}</p>
-          <div class="card__time" data-city="${tz.city}" data-zone="${tz.zone}">--:--:--</div>
+          <div class="card__time" data-city="${tz.city}" data-zone="${tz.zone}" aria-live="off">--:--:--</div>
           <p class="card__date" data-date="${tz.city}">Loading date...</p>
         </article>
       `
@@ -87,6 +118,9 @@ function buildTimezoneCards() {
     .join('');
 }
 
+/**
+ * Updates all timezone clock displays
+ */
 function updateTimezoneClocks() {
   const now = new Date();
 
@@ -104,19 +138,26 @@ function updateTimezoneClocks() {
   });
 }
 
+/**
+ * Main tick function - updates all clock displays
+ */
 function tick() {
   updateLocalTime();
   updateTimezoneClocks();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function () {
-    buildTimezoneCards();
-    tick();
-    setInterval(tick, 1000);
-  });
-} else {
+/**
+ * Initializes the application
+ */
+function initializeApp() {
   buildTimezoneCards();
   tick();
   setInterval(tick, 1000);
+}
+
+// Start the application when DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
 }
