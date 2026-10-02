@@ -3,47 +3,135 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Ebony Butler" />
-    <meta name="description" content="A digital world clock displaying current time in multiple time zones" />
-    <meta name="copyright" content="Copyright © 2026 Ebony Butler. All rights reserved." />
-    <title>World Time Clock - Ebony Butler</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
+    <title>World Time Clock | Commercial License</title>
+    <meta name="description" content="Commercial proprietary world clock software by Ebony Butler." />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b1020;
+        color: #edf6ff;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 50px 24px 80px;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        align-items: center;
+      }
+      h1 {
+        font-size: 4rem;
+        margin: 0 0 18px;
+      }
+      p {
+        color: #b8c8df;
+        line-height: 1.7;
+        font-size: 1.05rem;
+      }
+      .panel {
+        background: #121a2b;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+        padding: 24px;
+      }
+      .button {
+        display: inline-block;
+        padding: 15px 22px;
+        background: #7dd3fc;
+        color: #072038;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+        margin-top: 20px;
+      }
+      .button.secondary {
+        background: transparent;
+        color: #edf6ff;
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-left: 10px;
+      }
+      .features {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 50px;
+      }
+      .feature {
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        padding: 22px;
+      }
+      .feature h3 {
+        margin-top: 0;
+      }
+      .legal {
+        margin-top: 60px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding-top: 24px;
+        color: #b8c8df;
+      }
+      @media (max-width: 900px) {
+        .hero, .features {
+          grid-template-columns: 1fr;
+        }
+        h1 { font-size: 2.8rem; }
+      }
+    </style>
   </head>
   <body>
-    <main class="app">
-      <header class="header">
-        <div>
-          <p class="eyebrow">Global time</p>
-          <h1>World Clock</h1>
-          <p class="creator">© 2026 Ebony Butler</p>
-        </div>
-        <div class="live-indicator">
-          <span class="dot"></span>
-          Live
-        </div>
-      </header>
-
+    <div class="container">
       <section class="hero">
-        <div class="hero__content">
-          <p class="label">Your local time</p>
-          <div id="localClock" class="time-display">--:--:--</div>
-          <div id="localDate" class="date-display">Loading date...</div>
+        <div>
+          <h1>World Time Clock</h1>
+          <p>
+            A polished digital world clock for organizations that want a modern, reliable
+            time display across multiple time zones.
+          </p>
+          <p>
+            Proprietary software. Licensed for authorized business and team use only.
+          </p>
+          <a class="button" href="#license-request">Request Licensing</a>
+          <a class="button secondary" href="mailto:eboni7324@gmail.com">Contact Sales</a>
+        </div>
+
+        <div class="panel">
+          <h2>Commercial License</h2>
+          <p><strong>Owner:</strong> Ebony Butler</p>
+          <p><strong>License:</strong> Commercial use only</p>
+          <p><strong>Status:</strong> Proprietary software</p>
+          <p><strong>Use:</strong> Authorized team and licensed customers only</p>
         </div>
       </section>
 
-      <section class="timezone-grid" id="timezoneGrid" aria-live="polite"></section>
+      <section class="features">
+        <div class="feature">
+          <h3>Global Time Display</h3>
+          <p>Displays live time in multiple cities and zones across the world.</p>
+        </div>
+        <div class="feature">
+          <h3>Responsive Design</h3>
+          <p>Clean, modern layout optimized for both desktop and mobile users.</p>
+        </div>
+        <div class="feature">
+          <h3>Business Use</h3>
+          <p>Built for internal use, team deployment, and commercial licensing scenarios.</p>
+        </div>
+      </section>
 
-      <footer class="footer">
-        <p>&copy; 2026 Ebony Butler. All rights reserved. | Licensed under MIT</p>
-      </footer>
-    </main>
-
-    <script src="script.js"></script>
+      <section id="license-request" class="legal">
+        <h2>License Inquiry</h2>
+        <p>Email: eboni7324@gmail.com</p>
+        <p>© 2026 Ebony Butler. All rights reserved.</p>
+        <p>
+          This software is proprietary and licensed only under a written commercial agreement.
+          No public redistribution, unrestricted use, or open-source publication is permitted.
+        </p>
+      </section>
+    </div>
   </body>
 </html>

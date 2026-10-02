@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Time Clock | License Request</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b1020;
+        color: #edf6ff;
+        padding: 40px 20px;
+      }
+      .form {
+        max-width: 760px;
+        margin: 0 auto;
+        background: #121a2b;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px;
+      }
+      h1 {
+        margin-top: 0;
+      }
+      .row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      input, select {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid rgba(255,255,255,0.12);
+        background: #0f172a;
+        color: white;
+        border-radius: 8px;
+      }
+      .checkboxes {
+        margin-top: 20px;
+        line-height: 2;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 22px;
+        background: #7dd3fc;
+        color: #072038;
+        border: none;
+        border-radius: 10px;
+        padding: 14px 22px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      @media (max-width: 700px) {
+        .row { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form">
+      <h1>Commercial License Request</h1>
+
+      <form>
+        <div class="row">
+          <div>
+            <label>Customer Name</label>
+            <input type="text" />
+          </div>
+          <div>
+            <label>Company Name</label>
+            <input type="text" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Email</label>
+            <input type="email" />
+          </div>
+          <div>
+            <label>Phone</label>
+            <input type="tel" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Product</label>
+            <select>
+              <option>World Time Clock</option>
+            </select>
+          </div>
+          <div>
+            <label>License Type</label>
+            <select>
+              <option>Single User</option>
+              <option>Team License</option>
+              <option>Enterprise License</option>
+              <option>Custom License</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label>Number of Seats / Users</label>
+            <input type="text" />
+          </div>
+          <div>
+            <label>Deployment Scope</label>
+            <select>
+              <option>Internal Use Only</option>
+              <option>Client Deployment</option>
+              <option>Multi-Site Deployment</option>
+              <option>Custom</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="checkboxes">
+          <label><input type="checkbox" /> I agree to the commercial software license agreement.</label><br />
+          <label><input type="checkbox" /> I understand this software is proprietary and not open source.</label><br />
+          <label><input type="checkbox" /> I understand no public redistribution is permitted.</label>
+        </div>
+
+        <button class="button" type="submit">Submit Request</button>
+      </form>
+    </div>
+  </body>
+</html>

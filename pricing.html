@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Time Clock | Pricing</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0b1020;
+        color: #edf6ff;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+      }
+      h1 {
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 12px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #b8c8df;
+        margin-bottom: 40px;
+      }
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+      .plan {
+        background: #121a2b;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 16px;
+        padding: 28px;
+      }
+      .plan h2 {
+        margin-top: 0;
+      }
+      .price {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin: 16px 0;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: #b8c8df;
+        line-height: 2;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 24px;
+        background: #7dd3fc;
+        color: #072038;
+        padding: 13px 18px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+      }
+      .legal {
+        margin-top: 50px;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        color: #b8c8df;
+      }
+      @media (max-width: 900px) {
+        .plans { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Pricing</h1>
+      <div class="subtitle">Commercial licensing for proprietary software</div>
+
+      <div class="plans">
+        <div class="plan">
+          <h2>Single User</h2>
+          <div class="price">$299</div>
+          <ul>
+            <li>1 authorized user</li>
+            <li>1 deployment environment</li>
+            <li>Commercial license</li>
+          </ul>
+          <a class="button" href="mailto:eboni7324@gmail.com">Request Quote</a>
+        </div>
+
+        <div class="plan">
+          <h2>Team License</h2>
+          <div class="price">$799</div>
+          <ul>
+            <li>Up to 10 users</li>
+            <li>Internal team deployment</li>
+            <li>Commercial support</li>
+          </ul>
+          <a class="button" href="mailto:eboni7324@gmail.com">Request Quote</a>
+        </div>
+
+        <div class="plan">
+          <h2>Enterprise License</h2>
+          <div class="price">Custom</div>
+          <ul>
+            <li>Custom seat count</li>
+            <li>Business deployment</li>
+            <li>Custom legal terms</li>
+          </ul>
+          <a class="button" href="mailto:eboni7324@gmail.com">Request Quote</a>
+        </div>
+      </div>
+
+      <div class="legal">
+        © 2026 Ebony Butler. All rights reserved.<br />
+        This software is proprietary and licensed only under a written commercial agreement.<br />
+        No public redistribution, unrestricted use, or open-source publication is permitted.
+      </div>
+    </div>
+  </body>
+</html>
