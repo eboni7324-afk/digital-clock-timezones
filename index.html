@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Time Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Global time</p>
+          <h1>World Clock</h1>
+          <p class="creator">Built by Ebony Butler</p>
+        </div>
+        <div class="live-indicator">
+          <span class="dot"></span>
+          Live
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero__content">
+          <p class="label">Your local time</p>
+          <div id="localClock" class="time-display">--:--:--</div>
+          <div id="localDate" class="date-display">Loading date...</div>
+        </div>
+      </section>
+
+      <section class="timezone-grid" id="timezoneGrid" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
