@@ -1,54 +1,23 @@
-# World Clock
-
-Created by: Ebony Butler
-
-A responsive digital clock application that displays the current local time and multiple time-zone clocks.
-
-## Ownership and licensing
-
-This project is the intellectual property of Ebony Butler and is not open-source or free for public use.
-
-This repository is intended for internal use by Ebony Butler and authorized team members only. Distribution, public access, copying, reuse, or commercial use outside the authorized scope requires a written license agreement from the copyright holder.
-
-Important: this repository uses the actual recorded project history and timestamps as they appear in GitHub. No backdating or altered dates are used.
-
-- Copyright: © 2026 Ebony Butler
-- License status: Proprietary / internal-use only
-- Primary legal files:
-  - LICENSE
-  - COPYRIGHT.md
-  - NOTICE.md
-  - SECURITY.md
-
-## Project overview
-
-- Live local time display
-- Multi-city world clock
-- Responsive design
-- Timezone formatting via the browser Intl API
-
-## Local run instructions
-
-Open `index.html` directly in a browser, or run:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit:
-
-```text
-http://localhost:8000
-```
-
-## Legal notices
-
-This README, the source code, and all included project files are protected by copyright and are not licensed for open-source public use.
-
-## Support and security
-
-Please use the security policy in `SECURITY.md` to report vulnerabilities.
-
-## Copyright
+# World Time Clock — Proprietary Commercial Software
 
 © 2026 Ebony Butler. All rights reserved.
+
+## Ownership
+World Time Clock — its code, design, text, graphics, and documentation — is the exclusive property of Ebony Butler. This repository contains sales and marketing materials only. The product source code is not published here.
+
+## No license granted
+Viewing, downloading, or forking this repository does not grant you any right to use, copy, modify, distribute, or resell this software. No open-source license (MIT, GPL, Apache, or otherwise) applies to anything in this repository. All rights not expressly granted in a signed written commercial agreement are reserved.
+
+## Commercial licensing
+Use of World Time Clock requires a paid commercial license:
+- Professional — $299 (1 user, 1 environment)
+- Team — $799/year (up to 10 users)
+- Enterprise — custom pricing
+
+To request a license: eboni7324@gmail.com, subject "World Time Clock Licensing Inquiry."
+
+## Payment
+No license is effective until there is a signed agreement plus cleared payment — then you get the code.
+
+## Prohibited
+Redistribution, sublicensing, or publishing this software or derivatives without a signed commercial agreement is prohibited and will be pursued under applicable copyright law.
